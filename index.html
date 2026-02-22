@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SIS - Login Selection</title>
+    <title>Student Information System</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="center">
+<body>
 
-    <div class="box">
-        <h1>Student Information System</h1>
-        <button onclick="location.href='admin-login.html'">Admin Login</button>
-        <button onclick="location.href='student-login.html'">Student Login</button>
+<div class="intro" id="introScreen">
+    <h1>🎓 Welcome to</h1>
+    <h2>Student Information System</h2>
+</div>
+
+<div id="mainContent" style="display:none;">
+
+    <h2 class="title">Select Login</h2>
+
+    <div class="form">
+        <button onclick="location.href='admin-login.html'">
+            Admin Login
+        </button>
+
+        <br><br>
+
+        <button onclick="location.href='student-login.html'">
+            Student Login
+        </button>
     </div>
 
+</div>
+
+<script>
+    setTimeout(function(){
+        document.getElementById("introScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    }, 2000);
+</script>
+
 </body>
-</html> 
+</html>
