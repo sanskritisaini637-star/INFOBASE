@@ -1,4 +1,5 @@
-/* Background Gradient */
+
+/* ===== Background Gradient ===== */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -6,7 +7,16 @@ body {
     min-height: 100vh;
 }
 
-/* Center Box */
+/* ===== Titles ===== */
+.title {
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* ===== Form Box ===== */
 .form {
     background: white;
     width: 80%;
@@ -18,16 +28,7 @@ body {
     text-align: center;
 }
 
-/* Title */
-.title {
-    text-align: center;
-    color: white;
-    font-size: 28px;
-    margin-top: 30px;
-    font-weight: bold;
-}
-
-/* Inputs */
+/* ===== Inputs ===== */
 input {
     width: 90%;
     padding: 10px;
@@ -42,7 +43,7 @@ input:focus {
     border: 2px solid #9b59b6;
 }
 
-/* Button */
+/* ===== Buttons ===== */
 button {
     width: 95%;
     padding: 10px;
@@ -60,12 +61,13 @@ button:hover {
     background: linear-gradient(45deg, #9b59b6, #f39c12);
 }
 
-/* Table Styling */
+/* ===== Table Styling ===== */
 table {
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+    margin: auto;
 }
 
 th {
@@ -82,7 +84,8 @@ td {
 tr:nth-child(even) {
     background: #f2f2f2;
 }
-/* Intro Screen */
+
+/* ===== Intro Screen ===== */
 .intro {
     display: flex;
     flex-direction: column;
@@ -108,42 +111,10 @@ tr:nth-child(even) {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-/* Dashboard Grid */
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-    padding: 40px;
-}
 
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: 30px 20px;
-    text-align: center;
-    font-size: 30px;
-    cursor: pointer;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.card h3 {
-    font-size: 16px;
-    margin-top: 10px;
-    color: #4e73df;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(45deg, #4e73df, #9b59b6);
-    color: white;
-}
-
-.card:hover h3 {
-    color: white;
-}
+/* ===== Dashboard Styling ===== */
 .dashboard-container {
-    padding-top: 40px;
+    padding: 40px;
     text-align: center;
 }
 
@@ -151,7 +122,6 @@ tr:nth-child(even) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 25px;
-    padding: 30px;
     max-width: 600px;
     margin: auto;
 }
@@ -165,12 +135,30 @@ tr:nth-child(even) {
     transition: all 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(45deg, #4e73df, #9b59b6);
+    color: white;
+}
+
+.card h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #4e73df;
+}
+
+.card:hover h3 {
+    color: white;
+}
+
 .icon {
     font-size: 40px;
 }
+
+/* ===== Login Page Center ===== */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    }
+        }
