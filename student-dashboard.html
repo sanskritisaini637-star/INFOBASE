@@ -4,8 +4,10 @@
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="navbar">
+
+<body onload="loadStudent()">
+
+<nav class="navbar">
     <div class="logo">🎓 SIS</div>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -17,6 +19,10 @@
 <div class="dashboard-container">
 
     <h2 class="title">Student Dashboard</h2>
+
+    <!-- Student Info -->
+    <p>Welcome: <span id="studentName"></span></p>
+    <p>Roll No: <span id="studentRoll"></span></p>
 
     <div class="dashboard-grid">
 
@@ -38,6 +44,8 @@
     </div>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
