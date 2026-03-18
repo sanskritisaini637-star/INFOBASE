@@ -18,7 +18,6 @@ alert("Invalid Admin Login");
 function togglePassword(){
 
 let pass = document.getElementById("adminPass");
-
 pass.type = (pass.type === "password") ? "text" : "password";
 
 }
@@ -28,9 +27,13 @@ pass.type = (pass.type === "password") ? "text" : "password";
 let students = [
 
 {roll:"25001", name:"Aarav Sharma", password:"Aarav@001", math:78, cs:84, prog:90},
+
 {roll:"25002", name:"Diya Verma", password:"Diya@002", math:65, cs:70, prog:75},
+
 {roll:"25003", name:"Rohan Gupta", password:"Rohan@003", math:88, cs:92, prog:85},
+
 {roll:"25004", name:"Ananya Singh", password:"Ananya@004", math:72, cs:80, prog:78},
+
 {roll:"25005", name:"Kabir Mehta", password:"Kabir@005", math:60, cs:68, prog:70}
 
 ];
@@ -45,10 +48,8 @@ let pass = document.getElementById("studPass").value;
 let student = students.find(s => s.roll === roll && s.password === pass);
 
 if(student){
-
 localStorage.setItem("currentStudent", JSON.stringify(student));
 window.location = "student-dashboard.html";
-
 }
 else{
 alert("Invalid Roll No or Password");
@@ -75,7 +76,10 @@ function loadResult(){
 
 let student = JSON.parse(localStorage.getItem("currentStudent"));
 
-if(!student) return;
+if(!student){
+document.getElementById("finalResult").innerText = "No Result Found";
+return;
+}
 
 // Show basic info
 document.getElementById("studentName").innerText = student.name;
@@ -233,21 +237,4 @@ document.getElementById("duration").value="";
 
 alert("Course Added Successfully");
 
-}
-let students = [
-
-{roll:"25001", name:"Aarav Sharma", password:"Aarav@001", math:78, cs:84, prog:90},
-
-{roll:"25002", name:"Diya Verma", password:"Diya@002", math:65, cs:70, prog:75},
-
-{roll:"25003", name:"Rohan Gupta", password:"Rohan@003", math:88, cs:92, prog:85},
-
-{roll:"25004", name:"Ananya Singh", password:"Ananya@004", math:72, cs:80, prog:78},
-
-{roll:"25005", name:"Kabir Mehta", password:"Kabir@005", math:60, cs:68, prog:70}
-
-];
-let math = document.getElementById("math").value;
-let cs = document.getElementById("cs").value;
-let prog = document.getElementById("prog").value;
-localStorage.removeItem("currentStudent");
+ }
