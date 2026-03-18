@@ -1,4 +1,4 @@
-// ---------------- ADMIN LOGIN ----------------
+u// ---------------- ADMIN LOGIN ----------------
 function adminLogin(){
 
 let user = document.getElementById("adminUser").value;
@@ -238,3 +238,30 @@ document.getElementById("duration").value="";
 alert("Course Added Successfully");
 
  }
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 350px;  /* 🔥 IMPORTANT */
+ }
+.card {
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+     }
