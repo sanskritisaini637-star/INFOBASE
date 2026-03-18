@@ -39,21 +39,7 @@ let students = [
 ];
 
 
-// ---------------- STUDENT LOGIN ----------------
-function studentLogin(){
 
-let roll = document.getElementById("roll").value;
-let pass = document.getElementById("studPass").value;
-
-let student = students.find(s => s.roll === roll && s.password === pass);
-
-if(student){
-localStorage.setItem("currentStudent", JSON.stringify(student));
-window.location = "student-dashboard.html";
-}
-else{
-alert("Invalid Roll No or Password");
-}
 
 }
 
@@ -67,7 +53,16 @@ if(student){
 document.getElementById("studentName").innerText = student.name;
 document.getElementById("studentRoll").innerText = student.roll;
 }
+function studentLogin() {
+    var roll = document.getElementById("roll").value;
+    var pass = document.getElementById("studPass").value;
 
+    if (pass === "aarav@001") {
+        alert("Login Successful");
+        window.location.href = "student-dashboard.html";
+    } else {
+        alert("Invalid Password");
+    }
 }
 
 
