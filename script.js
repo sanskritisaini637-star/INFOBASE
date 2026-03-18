@@ -234,20 +234,3 @@ document.getElementById("duration").value="";
 alert("Course Added Successfully");
 
 }
-let students = [
-
-{roll:"25001", name:"Aarav Sharma", password:"Aarav@001", math:78, cs:84, prog:90},
-
-{roll:"25002", name:"Diya Verma", password:"Diya@002", math:65, cs:70, prog:75},
-
-{roll:"25003", name:"Rohan Gupta", password:"Rohan@003", math:88, cs:92, prog:85},
-
-{roll:"25004", name:"Ananya Singh", password:"Ananya@004", math:72, cs:80, prog:78},
-
-{roll:"25005", name:"Kabir Mehta", password:"Kabir@005", math:60, cs:68, prog:70}
-
-];
-let math = document.getElementById("math").value;
-let cs = document.getElementById("cs").value;
-let prog = document.getElementById("prog").value;
-localStorage.removeItem("currentStudent");
