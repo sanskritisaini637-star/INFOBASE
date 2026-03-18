@@ -1,42 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Information System</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navbar">
+
+<!-- NAVBAR -->
+<nav class="navbar">
     <div class="logo">🎓 SIS</div>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="admin-dashboard.html">Admin</a></li>
-        <li><a href="student-dashboard.html">Student</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Admin</a></li>
+        <li><a href="#">Student</a></li>
     </ul>
 </nav>
 
+<!-- INTRO SCREEN -->
 <div class="intro" id="introScreen">
     <h1>🎓 Welcome to</h1>
     <h2>Student Information System</h2>
 </div>
 
+<!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
 
     <h2 class="title">Select Login</h2>
 
     <div class="form">
-        <button onclick="location.href='admin-login.html'">
+        <button onclick="location.href='#'">
             Admin Login
         </button>
 
         <br><br>
 
-        <button onclick="location.href='student-login.html'">
+        <button onclick="location.href='#'">
             Student Login
         </button>
     </div>
 
+    <!-- 🔥 Yaha se tumhara syllabus section start -->
+    <div class="container">
+
+        <div class="card">
+            <h3>Semester 1</h3>
+            <p><b>Mathematics</b></p>
+            <ul>
+                <li>Algebra</li>
+                <li>Sets & Functions</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Semester 2</h3>
+            <p><b>Mathematics</b></p>
+            <ul>
+                <li>Calculus</li>
+                <li>Matrices</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Semester 3</h3>
+            <p><b>Mathematics</b></p>
+            <ul>
+                <li>Probability</li>
+                <li>Statistics</li>
+            </ul>
+        </div>
+
+    </div>
+
 </div>
 
+<!-- SCRIPT -->
 <script>
     setTimeout(function(){
         document.getElementById("introScreen").style.display = "none";
@@ -45,4 +85,4 @@
 </script>
 
 </body>
-</html>
+    </html>
