@@ -1,27 +1,127 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Results</title>
-    <link rel="stylesheet" href="style.css">
+<title>BSc Result</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f4f4f4;
+}
+
+.result-box{
+width:90%;
+margin:20px auto;
+border:2px solid black;
+padding:20px;
+background:white;
+border-radius:10px;
+}
+
+h2,h3{
+text-align:center;
+margin:5px;
+}
+
+.student-info{
+margin-top:20px;
+}
+
+.student-info p{
+margin:5px 0;
+font-size:16px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#333;
+color:white;
+}
+
+.summary{
+margin-top:20px;
+font-size:16px;
+}
+
+.pass{
+color:green;
+font-weight:bold;
+font-size:18px;
+}
+
+</style>
+
 </head>
-<body>
-    <nav class="navbar">
-    <div class="logo">🎓 SIS</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="admin-dashboard.html">Admin</a></li>
-        <li><a href="student-dashboard.html">Student</a></li>
-    </ul>
-</nav>
 
-<h2 class="title">Add Result</h2>
+<body onload="loadResult()">
 
-<div class="form">
-    <input type="text" placeholder="Roll Number">
-    <input type="text" placeholder="Subject">
-    <input type="number" placeholder="Marks">
-    <button>Add Result</button>
+<div class="result-box">
+
+<h2>RAJA MAHENDRA PRATAP SINGH UNIVERSITY</h2>
+<h3>B.Sc Examination Result</h3>
+
+<div class="student-info">
+
+<p><b>Student Name:</b> <span id="studentName"></span></p>
+<p><b>Roll No:</b> <span id="studentRoll"></span></p>
+<p><b>Course:</b> B.Sc Computer Science</p>
+
 </div>
+
+<table>
+
+<tr>
+<th>Subject</th>
+<th>Max Marks</th>
+<th>Marks Obtained</th>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td>100</td>
+<td id="mathMarks"></td>
+</tr>
+
+<tr>
+<td>Computer Science</td>
+<td>100</td>
+<td id="csMarks"></td>
+</tr>
+
+<tr>
+<td>Programming Language</td>
+<td>100</td>
+<td id="progMarks"></td>
+</tr>
+
+</table>
+
+<div class="summary">
+
+<p><b>Total Marks:</b> <span id="totalMarks"></span> / 300</p>
+<p><b>Percentage:</b> <span id="percentage"></span>%</p>
+<p><b>Grade:</b> <span id="grade"></span></p>
+<p><b>CGPA:</b> <span id="cgpa"></span></p>
+
+</div>
+
+<h3>Result: <span id="finalResult" class="pass"></span></h3>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
