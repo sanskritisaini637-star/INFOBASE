@@ -1,4 +1,4 @@
-u// ---------------- ADMIN LOGIN ----------------
+// ---------------- ADMIN LOGIN ----------------
 function adminLogin(){
 
 let user = document.getElementById("adminUser").value;
@@ -18,6 +18,7 @@ alert("Invalid Admin Login");
 function togglePassword(){
 
 let pass = document.getElementById("adminPass");
+
 pass.type = (pass.type === "password") ? "text" : "password";
 
 }
@@ -27,19 +28,31 @@ pass.type = (pass.type === "password") ? "text" : "password";
 let students = [
 
 {roll:"25001", name:"Aarav Sharma", password:"Aarav@001", math:78, cs:84, prog:90},
-
 {roll:"25002", name:"Diya Verma", password:"Diya@002", math:65, cs:70, prog:75},
-
 {roll:"25003", name:"Rohan Gupta", password:"Rohan@003", math:88, cs:92, prog:85},
-
 {roll:"25004", name:"Ananya Singh", password:"Ananya@004", math:72, cs:80, prog:78},
-
 {roll:"25005", name:"Kabir Mehta", password:"Kabir@005", math:60, cs:68, prog:70}
 
 ];
 
 
+// ---------------- STUDENT LOGIN ----------------
+function studentLogin(){
 
+let roll = document.getElementById("roll").value;
+let pass = document.getElementById("studPass").value;
+
+let student = students.find(s => s.roll === roll && s.password === pass);
+
+if(student){
+
+localStorage.setItem("currentStudent", JSON.stringify(student));
+window.location = "student-dashboard.html";
+
+}
+else{
+alert("Invalid Roll No or Password");
+}
 
 }
 
@@ -53,16 +66,7 @@ if(student){
 document.getElementById("studentName").innerText = student.name;
 document.getElementById("studentRoll").innerText = student.roll;
 }
-function studentLogin() {
-    var roll = document.getElementById("roll").value;
-    var pass = document.getElementById("studPass").value;
 
-    if (pass === "aarav@001") {
-        alert("Login Successful");
-        window.location.href = "student-dashboard.html";
-    } else {
-        alert("Invalid Password");
-    }
 }
 
 
@@ -71,10 +75,7 @@ function loadResult(){
 
 let student = JSON.parse(localStorage.getItem("currentStudent"));
 
-if(!student){
-document.getElementById("finalResult").innerText = "No Result Found";
-return;
-}
+if(!student) return;
 
 // Show basic info
 document.getElementById("studentName").innerText = student.name;
@@ -232,60 +233,21 @@ document.getElementById("duration").value="";
 
 alert("Course Added Successfully");
 
- }
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
 }
+let students = [
 
-.card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 15px;
-    color: white;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+{roll:"25001", name:"Aarav Sharma", password:"Aarav@001", math:78, cs:84, prog:90},
 
-    min-height: 350px;  /* 🔥 IMPORTANT */
- }
-.card {
-    transition: 0.3s;
-}
+{roll:"25002", name:"Diya Verma", password:"Diya@002", math:65, cs:70, prog:75},
 
-.card:hover {
-    transform: translateY(-5px);
-     }
-.login-box {
-    width: 90%;
-    max-width: 350px;
-    margin: 100px auto;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-}
+{roll:"25003", name:"Rohan Gupta", password:"Rohan@003", math:88, cs:92, prog:85},
 
-.login-box input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-}
+{roll:"25004", name:"Ananya Singh", password:"Ananya@004", math:72, cs:80, prog:78},
 
-.login-box button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #2c3e50;
-    color: white;
-    cursor: pointer;
-                                  }
+{roll:"25005", name:"Kabir Mehta", password:"Kabir@005", math:60, cs:68, prog:70}
+
+];
+let math = document.getElementById("math").value;
+let cs = document.getElementById("cs").value;
+let prog = document.getElementById("prog").value;
+localStorage.removeItem("currentStudent");
