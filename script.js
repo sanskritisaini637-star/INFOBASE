@@ -5,10 +5,10 @@ let user = document.getElementById("adminUser").value;
 let pass = document.getElementById("adminPass").value;
 
 if(user === "admin" && pass === "1234"){
-window.location = "admin-dashboard.html";
+    window.location = "admin-dashboard.html";
 }
 else{
-alert("Invalid Admin Login");
+    alert("Invalid Admin Login");
 }
 
 }
@@ -46,12 +46,12 @@ let student = students.find(s => s.roll === roll && s.password === pass);
 
 if(student){
 
-localStorage.setItem("currentStudent", JSON.stringify(student));
-window.location = "student-dashboard.html";
+    localStorage.setItem("currentStudent", JSON.stringify(student));
+    window.location = "student-dashboard.html";
 
 }
 else{
-alert("Invalid Roll No or Password");
+    alert("Invalid Roll No or Password");
 }
 
 }
@@ -63,8 +63,8 @@ function loadStudent(){
 let student = JSON.parse(localStorage.getItem("currentStudent"));
 
 if(student){
-document.getElementById("studentName").innerText = student.name;
-document.getElementById("studentRoll").innerText = student.roll;
+    document.getElementById("studentName").innerText = student.name;
+    document.getElementById("studentRoll").innerText = student.roll;
 }
 
 }
@@ -77,7 +77,7 @@ let student = JSON.parse(localStorage.getItem("currentStudent"));
 
 if(!student) return;
 
-// Show basic info
+// Basic Info
 document.getElementById("studentName").innerText = student.name;
 document.getElementById("studentRoll").innerText = student.roll;
 
@@ -86,7 +86,6 @@ let math = student.math;
 let cs = student.cs;
 let prog = student.prog;
 
-// Display marks
 document.getElementById("mathMarks").innerText = math;
 document.getElementById("csMarks").innerText = cs;
 document.getElementById("progMarks").innerText = prog;
@@ -113,13 +112,13 @@ document.getElementById("grade").innerText = grade;
 let cgpa = (percentage / 9.5).toFixed(2);
 document.getElementById("cgpa").innerText = cgpa;
 
-// Result
+// Final Result
 if(percentage >= 40){
-document.getElementById("finalResult").innerText = "PASS";
+    document.getElementById("finalResult").innerText = "PASS";
 }
 else{
-document.getElementById("finalResult").innerText = "FAIL";
-document.getElementById("finalResult").style.color = "red";
+    document.getElementById("finalResult").innerText = "FAIL";
+    document.getElementById("finalResult").style.color = "red";
 }
 
 }
@@ -132,14 +131,14 @@ let table = document.getElementById("studentTable");
 
 students.forEach(s => {
 
-let row = table.insertRow();
+    let row = table.insertRow();
 
-row.insertCell(0).innerHTML = s.roll;
-row.insertCell(1).innerHTML = s.name;
-row.insertCell(2).innerHTML = s.password;
-row.insertCell(3).innerHTML = s.math;
-row.insertCell(4).innerHTML = s.cs;
-row.insertCell(5).innerHTML = s.prog;
+    row.insertCell(0).innerHTML = s.roll;
+    row.insertCell(1).innerHTML = s.name;
+    row.insertCell(2).innerHTML = s.password;
+    row.insertCell(3).innerHTML = s.math;
+    row.insertCell(4).innerHTML = s.cs;
+    row.insertCell(5).innerHTML = s.prog;
 
 });
 
@@ -157,17 +156,17 @@ let cs = document.getElementById("cs").value;
 let prog = document.getElementById("prog").value;
 
 if(roll=="" || name=="" || password=="" || math=="" || cs=="" || prog==""){
-alert("Please fill all fields");
-return;
+    alert("Please fill all fields");
+    return;
 }
 
 let student = {
-roll: roll,
-name: name,
-password: password,
-math: parseInt(math),
-cs: parseInt(cs),
-prog: parseInt(prog)
+    roll: roll,
+    name: name,
+    password: password,
+    math: parseInt(math),
+    cs: parseInt(cs),
+    prog: parseInt(prog)
 };
 
 students.push(student);
@@ -184,7 +183,7 @@ row.insertCell(3).innerHTML = math;
 row.insertCell(4).innerHTML = cs;
 row.insertCell(5).innerHTML = prog;
 
-// Clear inputs
+// Clear fields
 document.getElementById("roll").value="";
 document.getElementById("name").value="";
 document.getElementById("password").value="";
@@ -208,8 +207,8 @@ let teacher = document.getElementById("teacherName").value;
 let duration = document.getElementById("duration").value;
 
 if(name=="" || code=="" || teacher=="" || duration==""){
-alert("Fill all fields");
-return;
+    alert("Fill all fields");
+    return;
 }
 
 let course = {name, code, teacher, duration};
@@ -225,12 +224,53 @@ row.insertCell(1).innerHTML = code;
 row.insertCell(2).innerHTML = teacher;
 row.insertCell(3).innerHTML = duration;
 
-// Clear
+// Clear fields
 document.getElementById("courseName").value="";
 document.getElementById("courseCode").value="";
 document.getElementById("teacherName").value="";
 document.getElementById("duration").value="";
 
 alert("Course Added Successfully");
+
+}
+
+
+// ---------------- LOGOUT ----------------
+function logout(){
+    localStorage.removeItem("currentStudent");
+    window.location.href = "index.html";
+}
+// ---------------- ADD RESULT ----------------
+function addResult(){
+
+let roll = document.getElementById("roll").value;
+let name = document.getElementById("name").value;
+let math = document.getElementById("math").value;
+let cs = document.getElementById("cs").value;
+let prog = document.getElementById("prog").value;
+
+if(roll=="" || name=="" || math=="" || cs=="" || prog==""){
+    alert("Please fill all fields");
+    return;
+}
+
+let table = document.getElementById("resultTable");
+
+let row = table.insertRow();
+
+row.insertCell(0).innerHTML = roll;
+row.insertCell(1).innerHTML = name;
+row.insertCell(2).innerHTML = math;
+row.insertCell(3).innerHTML = cs;
+row.insertCell(4).innerHTML = prog;
+
+// clear fields
+document.getElementById("roll").value="";
+document.getElementById("name").value="";
+document.getElementById("math").value="";
+document.getElementById("cs").value="";
+document.getElementById("prog").value="";
+
+alert("Result Added Successfully");
 
 }
