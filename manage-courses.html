@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Manage Courses</title>
-<link rel="stylesheet" href="style.css">
+    <title>Manage Courses</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h2>Manage Courses</h2>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">🎓 SIS</div>
+    <ul class="nav-links">
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="manage-students.html">Students</a></li>
+        <li><a href="manage-results.html">Results</a></li>
+    </ul>
+</nav>
 
-<div class="form-box">
+<!-- TITLE -->
+<h2 class="title">Manage Courses</h2>
 
-<input type="text" id="courseName" placeholder="Course Name">
-<br><br>
+<!-- FORM BOX -->
+<div class="admin-form">
 
-<input type="text" id="courseCode" placeholder="Course Code">
-<br><br>
+    <input type="text" id="courseName" placeholder="Course Name">
+    <input type="text" id="courseCode" placeholder="Course Code">
+    <input type="text" id="teacherName" placeholder="Teacher Name">
+    <input type="text" id="duration" placeholder="Duration">
 
-<input type="text" id="teacherName" placeholder="Teacher Name">
-<br><br>
-
-<input type="text" id="duration" placeholder="Duration">
-<br><br>
-
-<button onclick="addCourse()">Add Course</button>
+    <button onclick="addCourse()">Add Course</button>
 
 </div>
 
-<br><br>
+<!-- TABLE BOX -->
+<div class="admin-form">
 
-<h3>Courses List</h3>
+    <h3>Courses List</h3>
 
-<table border="1" id="courseTable">
+    <table id="courseTable">
 
-<tr>
-<th>Course Name</th>
-<th>Course Code</th>
-<th>Teacher</th>
-<th>Duration</th>
-</tr>
+        <tr>
+            <th>Course Name</th>
+            <th>Course Code</th>
+            <th>Teacher</th>
+            <th>Duration</th>
+        </tr>
 
-</table>
+    </table>
+
+</div>
 
 <script src="script.js"></script>
 
