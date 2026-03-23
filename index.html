@@ -1,26 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Information System</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- BACKGROUND SHAPES -->
+<div class="bg-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<!-- EMOJI BACKGROUND -->
+<div class="emoji-bg">
+    <span>🎓</span>
+    <span>📚</span>
+    <span>💻</span>
+    <span>📝</span>
+    <span>📖</span>
+    <span>🎯</span>
+</div>
+
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">🎓 SIS</div>
     <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="admin-login.html">Admin</a></li>
         <li><a href="student-login.html">Student</a></li>
     </ul>
 </nav>
 
 <!-- INTRO SCREEN -->
-<div class="intro" id="introScreen">
+<div id="introScreen" class="intro">
     <h1>🎓 Welcome to</h1>
     <h2>Student Information System</h2>
 </div>
@@ -49,8 +64,8 @@
     setTimeout(function(){
         document.getElementById("introScreen").style.display = "none";
         document.getElementById("mainContent").style.display = "block";
-    }, 2000);
+    }, 5000);
 </script>
 
 </body>
-</html>
+            </html>
