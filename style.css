@@ -1,274 +1,253 @@
-/* ===== BODY BACKGROUND ===== */
+/* ---------------- BODY ---------------- */
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #4e73df, #9b59b6, #f39c12);
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(-45deg, #667eea, #764ba2, #ff758c, #ff7eb3);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
 }
 
-/* ===== NAVBAR ===== */
+/* Background animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* ---------------- NAVBAR ---------------- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.3);
     color: white;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
+    animation: slideDown 0.8s ease;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
-    font-size: 14px;
 }
 
-.nav-links a:hover {
-    color: #f39c12;
+/* Navbar animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-/* ===== INTRO SCREEN ===== */
-.intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    color: white;
-}
 
-/* ===== TITLE ===== */
+/* ---------------- TITLE ---------------- */
 .title {
     text-align: center;
     color: white;
-    font-size: 28px;
     margin-top: 20px;
 }
 
-/* ===== INPUTS ===== */
-input {
-    width: 90%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
 
-input:focus {
-    border: 2px solid #9b59b6;
-}
-
-/* ===== BUTTON ===== */
-button {
-    width: 95%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
-    border: none;
-    background: linear-gradient(45deg, #4e73df, #9b59b6);
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: linear-gradient(45deg, #9b59b6, #f39c12);
-}
-
-/* ===== TABLE ===== */
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-th {
-    background: #4e73df;
-    color: white;
-    padding: 10px;
-}
-
-td {
-    padding: 8px;
+/* ---------------- INTRO ---------------- */
+.intro {
     text-align: center;
-}
-
-tr:nth-child(even) {
-    background: #f2f2f2;
-}
-
-/* ===== DASHBOARD ===== */
-.dashboard-container {
-    text-align: center;
-    padding-top: 30px;
     color: white;
+    margin-top: 100px;
 }
 
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    padding: 25px;
-    max-width: 600px;
-    margin: auto;
-}
 
-.card {
-    background: rgba(255,255,255,0.2);
+/* ---------------- FORM / LOGIN ---------------- */
+.form, .login-box, .admin-form {
+    width: 90%;
+    max-width: 350px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 25px 15px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeSlide 1s ease;
+}
+
+.form input,
+.login-box input,
+.admin-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.form button,
+.login-box button,
+.admin-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2c3e50;
+    color: white;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
+.form button:hover,
+.login-box button:hover,
+.admin-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.card h3 {
-    color: white;
-    font-size: 16px;
-}
 
-.icon {
-    font-size: 35px;
-}
-
-/* ===== SYLLABUS ===== */
-.syllabus-container {
-    width: 90%;
-    max-width: 700px;
-    margin: 20px auto;
-}
-
-.syllabus-box {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
-}
-
-.syllabus-box h3 {
-    margin: 0 0 10px 0;
-    color: #4e73df;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-}
-
-/* ===== RESULT ===== */
-.result-container {
-    width: 90%;
-    max-width: 700px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 15px;
+/* ---------------- GRID CARDS ---------------- */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
 }
 
-/* ===== HOME BUTTONS ===== */
-.home-buttons {
-    margin-top: 20px;
-}
-
-.home-buttons button {
-    width: 200px;
-    margin: 10px;
-}
-
-/* ===== BACKGROUND SHAPES ===== */
-.bg-shapes {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.bg-shapes span {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.25;
-}
-
-/* ===== EMOJI BACKGROUND ===== */
-.emoji-bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.emoji-bg span {
-    position: absolute;
-    font-size: 22px;
-    opacity: 0.08;
-}
-
-/* ===== ADMIN FORM (IMPORTANT) ===== */
-.admin-form {
-    width: 90%;
-    max-width: 420px;
-    margin: 40px auto;
-    background: white;
-    padding: 25px;
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
-    text-align: center;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 250px;
+
+    transition: 0.3s;
 }
 
-/* FIX ALIGNMENT */
-.admin-form input {
-    width: 100%;
-    margin: 10px 0;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.admin-form button {
-    width: 100%;
-    margin-top: 12px;
-}
-/* ===== ANIMATION ===== */
-@keyframes move {
-    from { transform: translateY(0px); }
-    to { transform: translateY(40px); }
+
+/* ---------------- ANIMATIONS ---------------- */
+
+/* Text animation */
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+
+/* ---------------- EMOJI ANIMATION (MAIN HEADING) ---------------- */
+
+.emoji-main {
+    font-size: 60px;
+    margin-right: 12px;
+    display: inline-block;
+
+    animation: popEmoji 0.8s ease,
+               floatEmoji 3s ease-in-out infinite,
+               glowEmoji 2s ease-in-out infinite;
+}
+
+/* Pop effect */
+@keyframes popEmoji {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Floating */
 @keyframes floatEmoji {
-    0% { top: 100%; }
-    100% { top: -10%; }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
-/* APPLY ANIMATION */
-.bg-shapes span {
-    animation: move 10s infinite alternate ease-in-out;
+/* Glow */
+@keyframes glowEmoji {
+    0% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+    50% { text-shadow: 0 0 20px rgba(255,255,255,0.9); }
+    100% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
 }
 
-.emoji-bg span {
-    animation: floatEmoji 12s linear infinite;
+
+/* ---------------- BACKGROUND EMOJIS ---------------- */
+
+.bg-emojis {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    z-index: 0;
 }
 
-    
+.bg-emojis span {
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.15;
+    animation: floatBg linear infinite;
+}
+
+/* Random positions + delays */
+.bg-emojis span:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.bg-emojis span:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: 2s; }
+.bg-emojis span:nth-child(3) { left: 40%; animation-duration: 10s; animation-delay: 4s; }
+.bg-emojis span:nth-child(4) { left: 60%; animation-duration: 18s; animation-delay: 1s; }
+.bg-emojis span:nth-child(5) { left: 75%; animation-duration: 14s; animation-delay: 3s; }
+.bg-emojis span:nth-child(6) { left: 90%; animation-duration: 20s; animation-delay: 5s; }
+
+/* Floating animation */
+@keyframes floatBg {
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+
+/* ---------------- FIX: CONTENT ABOVE EMOJIS ---------------- */
+.navbar,
+.intro,
+.form,
+.title,
+.container {
+    position: relative;
+    z-index: 1;
+    }
