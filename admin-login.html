@@ -4,17 +4,10 @@
     <title>Admin Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <nav class="navbar">
-    <div class="logo">🎓 SIS</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="admin-dashboard.html">Admin</a></li>
-        <li><a href="student-dashboard.html">Student</a></li>
-    </ul>
-</nav>
 
-<!-- Navbar -->
+<body>
+
+<!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">🎓 SIS</div>
     <ul class="nav-links">
@@ -23,27 +16,25 @@
     </ul>
 </nav>
 
+<!-- LOGIN CONTAINER -->
 <div class="login-container">
 
-    <div class="form">
+    <div class="admin-form">
+
         <h2>Admin Login</h2>
+        <p style="color: gray; font-size: 14px;">
+            Enter your credentials to access admin dashboard
+        </p>
 
-        <input type="text" id="adminUser" placeholder="Enter Username">
+        <input type="text" id="adminUser" placeholder="Username">
 
-        <div class="box">
-    <h2>Admin Login</h2>
+        <div class="password-box">
+            <input type="password" id="adminPass" placeholder="Password">
+            <span onclick="togglePassword()">👁️</span>
+        </div>
 
-    <input type="text" id="adminUser" placeholder="Username">
+        <button onclick="adminLogin()">Login</button>
 
-    <div class="password-box">
-        <input type="password" id="adminPass" placeholder="Enter Password">
-        <span onclick="togglePassword()">👁️</span>
-    </div>
-
-    <p id="error-msg" style="color:red;"></p>
-
-    <button onclick="adminLogin()">Login</button>
-</div>
     </div>
 
 </div>
@@ -51,4 +42,4 @@
 <script src="script.js"></script>
 
 </body>
-</html>
+            </html>
