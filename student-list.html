@@ -1,35 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Student List</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+    <title>Student List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="loadStudentsTable()">
-
-<nav class="navbar">
-    <div class="logo">🎓 SIS</div>
-</nav>
+<body onload="loadStudentList()">
 
 <h2 class="title">Student List</h2>
 
-<div class="admin-form">
+<div id="studentList" class="dashboard-grid"></div>
 
-<table id="studentTable">
-
-<tr>
-<th>Roll</th>
-<th>Name</th>
-<th>Password</th>
-<th>Math</th>
-<th>CS</th>
-<th>Prog</th>
-</tr>
-
-</table>
-
-</div>
+<script src="script.js"></script>
 
 </body>
 </html>
