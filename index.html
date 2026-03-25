@@ -6,24 +6,14 @@
 </head>
 
 <body>
-
-<!-- BACKGROUND SHAPES -->
-<div class="bg-shapes">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
-
-<!-- EMOJI BACKGROUND -->
-<div class="emoji-bg">
-    <span>🎓</span>
+<div class="bg-emojis">
     <span>📚</span>
-    <span>💻</span>
-    <span>📝</span>
+    <span>✏️</span>
     <span>📖</span>
-    <span>🎯</span>
+    <span>🧠</span>
+    <span>🎓</span>
+    <span>📝</span>
 </div>
-
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="logo">🎓 SIS</div>
@@ -34,38 +24,50 @@
     </ul>
 </nav>
 
-<!-- INTRO SCREEN -->
+<!-- INTRO -->
 <div id="introScreen" class="intro">
-    <h1>🎓 Welcome to</h1>
-    <h2>Student Information System</h2>
+
+    <h1>
+        <span class="emoji-main">🎓</span>
+        Welcome to Student Information System
+        <span class="emoji-main">✨</span>
+    </h1>
+
+    <!-- 🔥 optional small tagline -->
+    <p style="margin-top:10px; font-size:14px; opacity:0.8;">
+        Your complete academic management system
+    </p>
+
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div id="mainContent" style="display:none;">
 
     <h2 class="title">Select Login</h2>
 
     <div class="form">
-        <button onclick="location.href='admin-login.html'">
-            Admin Login
-        </button>
+
+        <a href="admin-login.html">
+            <button>Admin Login</button>
+        </a>
 
         <br><br>
 
-        <button onclick="location.href='student-login.html'">
-            Student Login
-        </button>
+        <a href="student-login.html">
+            <button>Student Login</button>
+        </a>
+
     </div>
 
 </div>
 
 <!-- SCRIPT -->
 <script>
-    setTimeout(function(){
-        document.getElementById("introScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-    }, 5000);
+setTimeout(function(){
+    document.getElementById("introScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+}, 3000);
 </script>
 
 </body>
-            </html>
+    </html>
