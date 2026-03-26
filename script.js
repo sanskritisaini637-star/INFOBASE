@@ -56,7 +56,14 @@ let student = students.find(s => s.roll === roll.value && s.password === pass.va
 
 if(student){
     localStorage.setItem("currentStudent", JSON.stringify(student));
-    window.location.href = "student-dashboard.html";
+
+    // 🔥 smooth transition before redirect
+    document.body.style.opacity = "0";
+
+    setTimeout(() => {
+        window.location.href = "student-dashboard.html";
+    }, 400);
+
 }
 else{
     alert("Invalid Roll No or Password");
@@ -197,95 +204,7 @@ prog.value="";
 }
 
 
-// ---------------- COURSES ----------------
-let courses = [];
-
-function addCourse(){
-
-let name = document.getElementById("courseName");
-let code = document.getElementById("courseCode");
-let teacher = document.getElementById("teacherName");
-let duration = document.getElementById("duration");
-
-if(!name || !code || !teacher || !duration) return;
-
-if(name.value=="" || code.value=="" || teacher.value=="" || duration.value==""){
-alert("Fill all fields");
-return;
-}
-
-let course = {
-name: name.value,
-code: code.value,
-teacher: teacher.value,
-duration: duration.value
-};
-
-courses.push(course);
-
-let table = document.getElementById("courseTable");
-
-if(table){
-let row = table.insertRow();
-
-row.insertCell(0).innerHTML = course.name;
-row.insertCell(1).innerHTML = course.code;
-row.insertCell(2).innerHTML = course.teacher;
-row.insertCell(3).innerHTML = course.duration;
-}
-
-// clear
-name.value="";
-code.value="";
-teacher.value="";
-duration.value="";
-
-alert("Course Added Successfully");
-
-}
-
-
-// ---------------- ADD RESULT ----------------
-function addResult(){
-
-let roll = document.getElementById("roll");
-let name = document.getElementById("name");
-let math = document.getElementById("math");
-let cs = document.getElementById("cs");
-let prog = document.getElementById("prog");
-
-if(!roll || !name || !math || !cs || !prog) return;
-
-if(roll.value=="" || name.value=="" || math.value=="" || cs.value=="" || prog.value==""){
-alert("Please fill all fields");
-return;
-}
-
-let table = document.getElementById("resultTable");
-
-if(table){
-let row = table.insertRow();
-
-row.insertCell(0).innerHTML = roll.value;
-row.insertCell(1).innerHTML = name.value;
-row.insertCell(2).innerHTML = math.value;
-row.insertCell(3).innerHTML = cs.value;
-row.insertCell(4).innerHTML = prog.value;
-}
-
-// clear
-roll.value="";
-name.value="";
-math.value="";
-cs.value="";
-prog.value="";
-
-alert("Result Added Successfully");
-
-}
-
-
-// ---------------- LOAD STUDENT LIST ----------------
+// ---------------- LOAD STUDENT LIST (UPDATED GRID) ----------------
 function loadStudentList(){
 
 let container = document.getElementById("studentList");
@@ -293,16 +212,16 @@ if(!container) return;
 
 container.innerHTML = "";
 
+// 🔥 important change → use container class
+container.classList.add("container");
+
 students.forEach(s => {
 
 let card = `
 <div class="card">
     <div class="icon">👩‍🎓</div>
     <h3>${s.name}</h3>
-    <p><b>Roll:</b> ${s.roll}</p>
-    <p><b>Father:</b> ${s.father}</p>
-    <p><b>Course:</b> ${s.course}</p>
-    <p><b>Marks:</b> ${s.math} / ${s.cs} / ${s.prog}</p>
+    <p>${s.roll}</p>
 </div>
 `;
 
@@ -315,6 +234,12 @@ container.innerHTML += card;
 
 // ---------------- LOGOUT ----------------
 function logout(){
-localStorage.removeItem("currentStudent");
-window.location.href = "index.html";
+
+document.body.style.opacity = "0";
+
+setTimeout(() => {
+    localStorage.removeItem("currentStudent");
+    window.location.href = "index.html";
+}, 300);
+
  }
