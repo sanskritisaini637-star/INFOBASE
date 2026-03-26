@@ -124,41 +124,63 @@ body {
 }
 
 
-/* ---------------- GRID CARDS ---------------- */
+/* ---------------- GRID CARDS (UPDATED) ---------------- */
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr); /* 🔥 3 cards per row */
+    gap: 20px;
     padding: 20px;
-    max-width: 500px;
+    max-width: 900px;
     margin: auto;
     position: relative;
     z-index: 1;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
     padding: 15px;
     border-radius: 15px;
-    color: white;
+    color: #2c3e50;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    min-height: 120px;
+    height: 120px;
 
     text-align: center;
 
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
     transition: 0.3s;
     cursor: pointer;
 }
 
+/* 🔥 PASTEL GRADIENT COLORS */
+.card:nth-child(1) {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(135deg, #ffedd5, #fed7aa);
+}
+
+.card:nth-child(5) {
+    background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+}
+
+/* 🔥 HOVER UPGRADE */
 .card:hover {
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0px 12px 30px rgba(0,0,0,0.25);
 }
 
 .card:active {
@@ -232,9 +254,9 @@ body {
 
 .bg-emojis span {
     position: absolute;
-    font-size: 70px;   /* 🔥 thoda aur bada */
-    opacity: 0.35;     /* aur visible */
-    filter: blur(0.5px); /* soft glass feel */
+    font-size: 70px;
+    opacity: 0.35;
+    filter: blur(0.5px);
     animation: floatBg linear infinite;
 }
 
