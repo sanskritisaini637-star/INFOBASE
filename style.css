@@ -353,6 +353,4 @@ body {
     margin-bottom: 10px;
     color: #1e293b;
 }
-<center>
-<button onclick="history.back()">⬅ Back</button>
-</center>
+
