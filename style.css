@@ -1,258 +1,280 @@
 /* ---------------- BODY ---------------- */
 body {
-margin: 0;
-font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
 
-background: linear-gradient(-45deg, #667eea, #764ba2, #ff758c, #ff7eb3);  
-background-size: 400% 400%;  
-animation: gradientMove 10s ease infinite;
-
+    background: linear-gradient(-45deg, #667eea, #764ba2, #ff758c, #ff7eb3);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
 }
 
 /* Background animation */
 @keyframes gradientMove {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
 
 /* ---------------- NAVBAR ---------------- */
 .navbar {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 15px 25px;
-background: rgba(0,0,0,0.3);
-color: white;
-animation: slideDown 0.8s ease;
-position: relative;
-z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    animation: slideDown 0.8s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-links {
-list-style: none;
-display: flex;
-gap: 15px;
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
 .nav-links a {
-text-decoration: none;
-color: white;
+    text-decoration: none;
+    color: white;
 }
 
 .nav-links a:hover {
-color: #ffd369;
+    color: #ffd369;
 }
 
 /* Navbar animation */
 @keyframes slideDown {
-from {
-transform: translateY(-50px);
-opacity: 0;
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-to {
-transform: translateY(0);
-opacity: 1;
-}
-}
+
 
 /* ---------------- TITLE ---------------- */
 .title {
-text-align: center;
-color: white;
-margin-top: 20px;
-position: relative;
-z-index: 1;
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
+
 
 /* ---------------- INTRO ---------------- */
 .intro {
-text-align: center;
-color: white;
-margin-top: 100px;
-position: relative;
-z-index: 1;
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+    position: relative;
+    z-index: 1;
 }
+
 
 /* ---------------- FORM / LOGIN ---------------- */
 .form, .login-box, .admin-form {
-width: 90%;
-max-width: 320px;
-margin: 30px auto;
-background: rgba(255, 255, 255, 0.15);
-backdrop-filter: blur(12px);
-padding: 25px;
-border-radius: 15px;
-text-align: center;
-animation: fadeSlide 1s ease;
-position: relative;
-z-index: 1;
+    width: 90%;
+    max-width: 320px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeSlide 1s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .form input,
 .login-box input,
 .admin-form input {
-width: 100%;
-padding: 10px;
-margin: 10px 0;
-border-radius: 8px;
-border: none;
-outline: none;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
 }
 
 .form button,
 .login-box button,
 .admin-form button {
-width: 100%;
-padding: 10px;
-border: none;
-border-radius: 8px;
-background: #2c3e50;
-color: white;
-cursor: pointer;
-transition: 0.3s;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2c3e50;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .form button:hover,
 .login-box button:hover,
 .admin-form button:hover {
-transform: scale(1.05);
-box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* ---------------- GRID CARDS (UPDATED) ---------------- /
+
+/* ---------------- NORMAL GRID ---------------- */
 .container {
-display: grid;
-grid-template-columns: repeat(3, 1fr); / 🔥 3 cards per row */
-gap: 20px;
-padding: 20px;
-max-width: 900px;
-margin: auto;
-position: relative;
-z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
 }
 
+
+/* ---------------- DASHBOARD GRID (FIXED) ---------------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 10px;
+}
+
+
+/* ---------------- CARD ---------------- */
 .card {
-backdrop-filter: blur(12px);
-padding: 15px;
-border-radius: 15px;
-color: #2c3e50;
+    padding: 18px;
+    border-radius: 18px;
+    color: #2c3e50;
 
-display: flex;  
-flex-direction: column;  
-justify-content: center;  
-align-items: center;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-height: 120px;  
+    height: 140px;
+    text-align: center;
 
-text-align: center;  
+    background: transparent;
+    border: none;
 
-box-shadow: 0px 6px 20px rgba(0,0,0,0.15);  
-transition: 0.3s;  
-cursor: pointer;
-
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-/* 🔥 PASTEL GRADIENT COLORS */
-.card:nth-child(1) {
-background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+
+/* ---------------- CARD COLORS (FINAL) ---------------- */
+.dashboard-grid .card:nth-child(1) {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
 }
 
-.card:nth-child(2) {
-background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+.dashboard-grid .card:nth-child(2) {
+    background: linear-gradient(135deg, #dcfce7, #bbf7d0);
 }
 
-.card:nth-child(3) {
-background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+.dashboard-grid .card:nth-child(3) {
+    background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
 }
 
-.card:nth-child(4) {
-background: linear-gradient(135deg, #ffedd5, #fed7aa);
+.dashboard-grid .card:nth-child(4) {
+    background: linear-gradient(135deg, #ffedd5, #fed7aa);
 }
 
-.card:nth-child(5) {
-background: linear-gradient(135deg, #ffe4e6, #fecdd3);
+.dashboard-grid .card:nth-child(5) {
+    background: linear-gradient(135deg, #ffe4e6, #fecdd3);
 }
 
-/* 🔥 HOVER UPGRADE */
+
+/* ---------------- HOVER ---------------- */
 .card:hover {
-transform: translateY(-8px) scale(1.05);
-box-shadow: 0px 12px 30px rgba(0,0,0,0.25);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0px 15px 35px rgba(0,0,0,0.25);
 }
 
 .card:active {
-transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .card h3 {
-margin: 5px 0;
-font-size: 14px;
+    margin: 5px 0;
+    font-size: 15px;
 }
 
 .icon {
-font-size: 28px;
-margin-bottom: 8px;
+    font-size: 30px;
+    margin-bottom: 8px;
 }
+
 
 /* ---------------- ANIMATIONS ---------------- */
 @keyframes fadeSlide {
-0% {
-opacity: 0;
-transform: translateY(30px);
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-100% {
-opacity: 1;
-transform: translateY(0);
-}
-}
+
 
 /* ---------------- MAIN EMOJI ---------------- */
 .emoji-main {
-font-size: 60px;
-margin-right: 12px;
-display: inline-block;
+    font-size: 60px;
+    margin-right: 12px;
+    display: inline-block;
 
-animation: popEmoji 0.8s ease,  
-           floatEmoji 3s ease-in-out infinite,  
-           glowEmoji 2s ease-in-out infinite;
-
+    animation: popEmoji 0.8s ease,
+               floatEmoji 3s ease-in-out infinite,
+               glowEmoji 2s ease-in-out infinite;
 }
 
 @keyframes popEmoji {
-0% { transform: scale(0); opacity: 0; }
-80% { transform: scale(1.2); }
-100% { transform: scale(1); opacity: 1; }
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes floatEmoji {
-0% { transform: translateY(0); }
-50% { transform: translateY(-10px); }
-100% { transform: translateY(0); }
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes glowEmoji {
-0% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
-50% { text-shadow: 0 0 20px rgba(255,255,255,0.9); }
-100% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+    0% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+    50% { text-shadow: 0 0 20px rgba(255,255,255,0.9); }
+    100% { text-shadow: 0 0 5px rgba(255,255,255,0.3); }
 }
 
-/* ---------------- BACKGROUND EMOJIS (UPGRADED) ---------------- */
+
+/* ---------------- BACKGROUND EMOJIS ---------------- */
 .bg-emojis {
-position: fixed;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-pointer-events: none;
-z-index: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .bg-emojis span {
-position: absolute;
-font-size: 70px;
-opacity: 0.35;
-filter: blur(0.5px);
-animation: floatBg linear infinite;
+    position: absolute;
+    font-size: 70px;
+    opacity: 0.35;
+    filter: blur(0.5px);
+    animation: floatBg linear infinite;
 }
 
 .bg-emojis span:nth-child(1) { left: 5%; animation-duration: 22s; }
@@ -267,18 +289,51 @@ animation: floatBg linear infinite;
 .bg-emojis span:nth-child(10){ left: 35%; animation-duration: 31s; }
 
 @keyframes floatBg {
-0% {
-transform: translateY(100vh) translateX(0px) rotate(0deg);
-opacity: 0;
-}
-10% {
-opacity: 0.3;
-}
-50% {
-transform: translateY(50vh) translateX(20px) rotate(180deg);
-}
-100% {
-transform: translateY(-10vh) translateX(-20px) rotate(360deg);
-opacity: 0;
-}
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
     }
+    10% {
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(50vh) translateX(20px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(-10vh) translateX(-20px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* ---------------- EXTRA FIXES ---------------- */
+.dashboard-container {
+    text-align: center;
+}
+
+.dashboard-container p {
+    text-align: center;
+    color: white;
+    margin: 5px 0;
+}
+
+.dashboard-container p span {
+    font-weight: bold;
+    color: #ffd369;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box button {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+.intro h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+               }
