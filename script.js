@@ -57,7 +57,6 @@ let student = students.find(s => s.roll === roll.value && s.password === pass.va
 if(student){
     localStorage.setItem("currentStudent", JSON.stringify(student));
 
-    // 🔥 smooth transition before redirect
     document.body.style.opacity = "0";
 
     setTimeout(() => {
@@ -85,54 +84,6 @@ if(student && document.getElementById("studentName")){
 }
 
 
-// ---------------- LOAD RESULT ----------------
-function loadResult(){
-
-let student = JSON.parse(localStorage.getItem("currentStudent"));
-if(!student) return;
-
-if(!document.getElementById("mathMarks")) return;
-
-let math = student.math;
-let cs = student.cs;
-let prog = student.prog;
-
-document.getElementById("studentName").innerText = student.name;
-document.getElementById("studentRoll").innerText = student.roll;
-
-document.getElementById("mathMarks").innerText = math;
-document.getElementById("csMarks").innerText = cs;
-document.getElementById("progMarks").innerText = prog;
-
-let total = math + cs + prog;
-document.getElementById("totalMarks").innerText = total;
-
-let percentage = (total / 300) * 100;
-document.getElementById("percentage").innerText = percentage.toFixed(2);
-
-let grade = "";
-if(percentage >= 90) grade = "A+";
-else if(percentage >= 75) grade = "A";
-else if(percentage >= 60) grade = "B";
-else if(percentage >= 50) grade = "C";
-else grade = "Fail";
-
-document.getElementById("grade").innerText = grade;
-
-let cgpa = (percentage / 9.5).toFixed(2);
-document.getElementById("cgpa").innerText = cgpa;
-
-if(percentage >= 40){
-    document.getElementById("finalResult").innerText = "PASS";
-}
-else{
-    document.getElementById("finalResult").innerText = "FAIL";
-    document.getElementById("finalResult").style.color = "red";
-}
-
-}
-
-
 // ---------------- LOAD STUDENTS TABLE ----------------
 function loadStudentsTable(){
 
@@ -153,6 +104,69 @@ row.insertCell(6).innerHTML = s.cs;
 row.insertCell(7).innerHTML = s.prog;
 
 });
+
+}
+
+
+// ---------------- LOAD RESULT (UPDATED) ----------------
+function loadResult(){
+
+let student = JSON.parse(localStorage.getItem("currentStudent"));
+let sem = localStorage.getItem("selectedSem");
+
+if(!student) return;
+if(!document.getElementById("mathMarks")) return;
+
+// 🎯 Semester-wise marks
+let semesterData = {
+  1: { math: student.math, cs: student.cs, prog: student.prog },
+  2: { math: student.math + 5, cs: student.cs + 3, prog: student.prog + 4 },
+  3: { math: student.math + 8, cs: student.cs + 6, prog: student.prog + 5 },
+  4: { math: student.math + 10, cs: student.cs + 8, prog: student.prog + 7 },
+  5: { math: student.math + 12, cs: student.cs + 10, prog: student.prog + 9 }
+};
+
+let result = semesterData[sem];
+
+// Student info
+document.getElementById("studentName").innerText = student.name;
+document.getElementById("studentRoll").innerText = student.roll;
+
+// Marks
+document.getElementById("mathMarks").innerText = result.math;
+document.getElementById("csMarks").innerText = result.cs;
+document.getElementById("progMarks").innerText = result.prog;
+
+// Total
+let total = result.math + result.cs + result.prog;
+document.getElementById("totalMarks").innerText = total;
+
+// Percentage
+let percentage = (total / 300) * 100;
+document.getElementById("percentage").innerText = percentage.toFixed(2);
+
+// Grade
+let grade = "";
+if(percentage >= 90) grade = "A+";
+else if(percentage >= 75) grade = "A";
+else if(percentage >= 60) grade = "B";
+else if(percentage >= 50) grade = "C";
+else grade = "Fail";
+
+document.getElementById("grade").innerText = grade;
+
+// CGPA
+let cgpa = (percentage / 9.5).toFixed(2);
+document.getElementById("cgpa").innerText = cgpa;
+
+// Result
+if(percentage >= 40){
+    document.getElementById("finalResult").innerText = "PASS";
+}
+else{
+    document.getElementById("finalResult").innerText = "FAIL";
+    document.getElementById("finalResult").style.color = "red";
+}
 
 }
 
@@ -204,7 +218,7 @@ prog.value="";
 }
 
 
-// ---------------- LOAD STUDENT LIST (UPDATED GRID) ----------------
+// ---------------- LOAD STUDENT LIST ----------------
 function loadStudentList(){
 
 let container = document.getElementById("studentList");
@@ -212,7 +226,6 @@ if(!container) return;
 
 container.innerHTML = "";
 
-// 🔥 important change → use container class
 container.classList.add("container");
 
 students.forEach(s => {
@@ -242,4 +255,35 @@ setTimeout(() => {
     window.location.href = "index.html";
 }, 300);
 
+}
+
+
+// ---------------- EMOJI ANIMATION ----------------
+function createEmoji() {
+  const emojis = ["🎓", "📚", "✨", "💻", "📝"];
+  const emoji = document.createElement("div");
+  emoji.classList.add("emoji");
+  emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+  emoji.style.left = Math.random() * 100 + "vw";
+  emoji.style.fontSize = (20 + Math.random() * 30) + "px";
+
+  document.querySelector(".emoji-bg").appendChild(emoji);
+
+  setTimeout(() => {
+    emoji.remove();
+  }, 10000);
+}
+
+setInterval(() => {
+  if (document.querySelector(".emoji-bg")) {
+    createEmoji();
+  }
+}, 500);
+
+
+// ---------------- SELECT SEMESTER ----------------
+function selectSem(sem) {
+  localStorage.setItem("selectedSem", sem);
+  window.location.href = "result.html";
  }
