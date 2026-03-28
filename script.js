@@ -233,8 +233,14 @@ students.forEach(s => {
 let card = `
 <div class="card">
     <div class="icon">👩‍🎓</div>
+    
     <h3>${s.name}</h3>
-    <p>${s.roll}</p>
+    
+    <p><b>Roll No:</b> ${s.roll}</p>
+    <p><b>Father Name:</b> ${s.father}</p>
+    <p><b>Course:</b> ${s.course}</p>
+    <p><b>Password:</b> ${s.password}</p>
+    
 </div>
 `;
 
@@ -286,4 +292,4 @@ setInterval(() => {
 function selectSem(sem) {
   localStorage.setItem("selectedSem", sem);
   window.location.href = "result.html";
- }
+    }
