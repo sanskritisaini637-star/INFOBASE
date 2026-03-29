@@ -108,7 +108,35 @@ row.insertCell(7).innerHTML = s.prog;
 }
 
 
-// ---------------- LOAD RESULT (UPDATED) ----------------
+// ---------------- LOAD STUDENT LIST (GRID) ----------------
+function loadStudentList(){
+
+let container = document.getElementById("studentList");
+if(!container) return;
+
+container.innerHTML = "";
+
+students.forEach(s => {
+
+let card = `
+<div class="card">
+    <div class="icon">👩‍🎓</div>
+    <h3>${s.name}</h3>
+    <p><b>Roll No:</b> ${s.roll}</p>
+    <p><b>Father Name:</b> ${s.father}</p>
+    <p><b>Course:</b> ${s.course}</p>
+    <p><b>Password:</b> ${s.password}</p>
+</div>
+`;
+
+container.innerHTML += card;
+
+});
+
+}
+
+
+// ---------------- LOAD RESULT ----------------
 function loadResult(){
 
 let student = JSON.parse(localStorage.getItem("currentStudent"));
@@ -117,7 +145,6 @@ let sem = localStorage.getItem("selectedSem");
 if(!student) return;
 if(!document.getElementById("mathMarks")) return;
 
-// 🎯 Semester-wise marks
 let semesterData = {
   1: { math: student.math, cs: student.cs, prog: student.prog },
   2: { math: student.math + 5, cs: student.cs + 3, prog: student.prog + 4 },
@@ -127,25 +154,21 @@ let semesterData = {
 };
 
 let result = semesterData[sem];
+if(!result) return;
 
-// Student info
 document.getElementById("studentName").innerText = student.name;
 document.getElementById("studentRoll").innerText = student.roll;
 
-// Marks
 document.getElementById("mathMarks").innerText = result.math;
 document.getElementById("csMarks").innerText = result.cs;
 document.getElementById("progMarks").innerText = result.prog;
 
-// Total
 let total = result.math + result.cs + result.prog;
 document.getElementById("totalMarks").innerText = total;
 
-// Percentage
 let percentage = (total / 300) * 100;
 document.getElementById("percentage").innerText = percentage.toFixed(2);
 
-// Grade
 let grade = "";
 if(percentage >= 90) grade = "A+";
 else if(percentage >= 75) grade = "A";
@@ -155,11 +178,9 @@ else grade = "Fail";
 
 document.getElementById("grade").innerText = grade;
 
-// CGPA
 let cgpa = (percentage / 9.5).toFixed(2);
 document.getElementById("cgpa").innerText = cgpa;
 
-// Result
 if(percentage >= 40){
     document.getElementById("finalResult").innerText = "PASS";
 }
@@ -171,83 +192,10 @@ else{
 }
 
 
-// ---------------- ADD NEW STUDENT ----------------
-function addStudent(){
-
-let roll = document.getElementById("roll");
-let name = document.getElementById("name");
-let father = document.getElementById("father");
-let course = document.getElementById("course");
-let password = document.getElementById("password");
-let math = document.getElementById("math");
-let cs = document.getElementById("cs");
-let prog = document.getElementById("prog");
-
-if(!roll || !name || !father || !course || !password || !math || !cs || !prog) return;
-
-if(roll.value=="" || name.value=="" || father.value=="" || course.value=="" || password.value=="" || math.value=="" || cs.value=="" || prog.value==""){
-alert("Please fill all fields");
-return;
-}
-
-let student = {
-roll: roll.value,
-name: name.value,
-father: father.value,
-course: course.value,
-password: password.value,
-math: parseInt(math.value),
-cs: parseInt(cs.value),
-prog: parseInt(prog.value)
-};
-
-students.push(student);
-
-alert("Student Added Successfully");
-
-// clear
-roll.value="";
-name.value="";
-father.value="";
-course.value="";
-password.value="";
-math.value="";
-cs.value="";
-prog.value="";
-
-}
-
-
-// ---------------- LOAD STUDENT LIST ----------------
-function loadStudentList(){
-
-let container = document.getElementById("studentList");
-if(!container) return;
-
-container.innerHTML = "";
-
-container.classList.add("container");
-
-students.forEach(s => {
-
-let card = `
-<div class="card">
-    <div class="icon">👩‍🎓</div>
-    
-    <h3>${s.name}</h3>
-    
-    <p><b>Roll No:</b> ${s.roll}</p>
-    <p><b>Father Name:</b> ${s.father}</p>
-    <p><b>Course:</b> ${s.course}</p>
-    <p><b>Password:</b> ${s.password}</p>
-    
-</div>
-`;
-
-container.innerHTML += card;
-
-});
-
+// ---------------- SELECT SEMESTER ----------------
+function selectSem(sem) {
+  localStorage.setItem("selectedSem", sem);
+  window.location.href = "result.html";
 }
 
 
@@ -286,10 +234,3 @@ setInterval(() => {
     createEmoji();
   }
 }, 500);
-
-
-// ---------------- SELECT SEMESTER ----------------
-function selectSem(sem) {
-  localStorage.setItem("selectedSem", sem);
-  window.location.href = "result.html";
-    }
