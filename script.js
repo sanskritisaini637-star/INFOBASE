@@ -195,7 +195,7 @@ else{
 // ---------------- SELECT SEMESTER ----------------
 function selectSem(sem) {
   localStorage.setItem("selectedSem", sem);
-  window.location.href = "result.html";
+  window.location.href = "./result.html";
 }
 
 
